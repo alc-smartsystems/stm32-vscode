@@ -1,0 +1,29 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+  {
+    "name": "(gdb) Debug",
+    "type": "cppdbg",
+    "request": "launch",
+    "program": "${command:cmake.launchTargetPath}",
+    "args": [],
+    "cwd": "${workspaceFolder}",
+    "environment": [],
+    "externalConsole": false,
+    "MIMode": "gdb",
+    "miDebuggerPath": "${env:STM32CLT_PATH}/GNU-tools-for-STM32/bin/arm-none-eabi-gdb.exe",
+    "miDebuggerServerAddress": "localhost:3333",
+    "debugServerPath": "${env:STM32CLT_PATH}/STLink-gdb-server/bin/ST-LINK_gdbserver.exe",
+    "debugServerArgs": "--stm32cubeprogrammer-path ${env:STM32CLT_PATH}/STM32CubeProgrammer/bin --swd --port-number 3333",
+    "serverStarted": "Waiting for connection on port .*\\.\\.\\.",
+    "stopAtConnect": false,
+      "postRemoteConnectCommands": [
+        {"text": "load build/${command:cmake.activeBuildPresetName}/${cmake.launchTargetFilename}.elf"},
+	      {"text": "tbreak main"}
+
+      ],
+      "svdPath": "${env:STM32CLT_PATH}/STMicroelectronics_CMSIS_SVD/STM32G431xx.svd"
+
+  }
+  ]
+}

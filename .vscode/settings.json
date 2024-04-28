@@ -1,0 +1,26 @@
+{
+  "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+  "cmake.configureOnOpen": false,
+  "cmake.buildBeforeRun" : false,
+    "idf.enableStatusBar" : false,
+  "idf.showOnboardingOnInit": false,
+    "VsCodeTaskButtons.showCounter": false,
+    "VsCodeTaskButtons.tasks": [
+            {
+            "label": "$(symbol-property) Build",
+            "task": "CMake: build",
+            "tooltip": "build task"
+        },
+        {
+            "label": "$(notebook-delete-cell) Clean",
+            "task": "CMake: clean",
+            "tooltip": "clean task"
+        },
+	{
+            "label": "$(symbol-event) Upload",
+            "task": "upload-task",
+            "tooltip": "flash firmware"
+        },
+    ]
+
+}

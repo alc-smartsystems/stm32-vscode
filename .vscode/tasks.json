@@ -1,0 +1,30 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build",
+      "type": "cmake",
+      "command": "build",
+      "problemMatcher": "$gcc",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "type": "cmake",
+      "label": "CMake: clean",
+      "command": "clean",
+      "preset": "${command:cmake.activeBuildPresetName}",
+      "problemMatcher": [],
+      "detail": "CMake template clean task",
+      "group": "build"
+    },
+    {
+      "label": "upload-task",
+      "type": "shell",
+      "command": "${env:STM32CLT_PATH}/STM32CubeProgrammer/bin/STM32_Programmer_CLI.exe -c port=SWD -w ${command:cmake.launchTargetPath} -rst",      
+      "problemMatcher": []
+    },
+  ]
+}
